@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 
-const LivePreview = ({ MainText, MainEText, description, imagePreview }) => {
+const LivePreview = ({ MainText, MainEText, description, imagePreview, imagePlacement }) => {
     const [email, setEmail] = useState('');
     const [emailError, setEmailError] = useState('');
 
@@ -44,16 +44,38 @@ const LivePreview = ({ MainText, MainEText, description, imagePreview }) => {
             
           </div>
         ) : (
-          <div className="main-textbox">
+          <div className="main-textbox"
+          style={{
+            display: 'flex',
+            flexDirection: imagePlacement === 'left' ? 'row-reverse' : 'row',
+            
+          }}
+          >
             <div className="sub">
                 <h1>{MainText}</h1>
                 <p>{description}</p>
             </div>
            
-            
+            <div className="image-preview"
+            style={{
+                width: '400px',   
+                height: '400px', 
+                overflow: 'hidden', 
+              }}
+            >
+                
             {imagePreview && (
-              <img src={imagePreview} alt="Preview" className="image-preview" />
+              <img src={imagePreview} alt="Preview"  
+              style={{
+                width: '100%',   
+                height: '100%',  
+                objectFit: 'cover', 
+              }}
+              />
             )}
+            
+            </div>
+            
           </div>
         )}
      </>

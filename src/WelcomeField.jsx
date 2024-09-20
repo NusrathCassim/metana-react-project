@@ -4,6 +4,7 @@ function WelcomeField({ setWelcomeContent }) {
   const [imagePreview, setImagePreview] = useState('');
   const [MainText, setMainText] = useState('Main Text');
   const [description, setDescription] = useState('Description');
+  const [imagePlacement, setImagePlacement] = useState('right')
 
   function handleInputChange(event) {
     const maintext = event.target.value;
@@ -24,7 +25,12 @@ function WelcomeField({ setWelcomeContent }) {
   }
 
   function handleImagePlacement(event) {
-    // Logic for image placement can be added here
+    const newImagePlacement = event.target.value;
+    setImagePlacement(newImagePlacement);
+    setWelcomeContent((prevState) => ({
+      ...prevState,
+      imagePlacement: newImagePlacement,
+    }));
   }
 
   function handleImageUpload(e) {
@@ -64,6 +70,7 @@ function WelcomeField({ setWelcomeContent }) {
             <select
               name="imagePlacement"
               onChange={handleImagePlacement}
+              value={imagePlacement}
               className="input-field"
             >
               <option value="left">Left</option>

@@ -48,6 +48,7 @@ function Base() {
                         MainText={welcomeContent.MainText} 
                         description={welcomeContent.description} 
                         imagePreview={welcomeContent.imageUrl} 
+                        imagePlacement={welcomeContent.imagePlacement}
                     />
                 )}
                 {activeField === 'email' && (

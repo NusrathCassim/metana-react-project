@@ -52,13 +52,7 @@ button{
     border-bottom: 2px solid gray;
     outline: 0;
 }
-.main-textbox .duc{
-    flex-direction: column;
-}
-.image-preview{
-    width: 50%;
-    height: 40%;
-}
+
 img{
     border-radius: 0.5rem;
 }
